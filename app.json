@@ -1,32 +1,21 @@
-{
-  "expo": {
-    "name": "apiApp",
-    "slug": "apiApp",
-    "version": "1.0.0",
-    "orientation": "portrait",
-    "icon": "./assets/icon.png",
-    "splash": {
-      "image": "./assets/splash.png",
-      "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
-    },
-    "updates": {
-      "fallbackToCacheTimeout": 0
-    },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
-    "ios": {
-      "supportsTablet": true
-    },
-    "android": {
-      "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#FFFFFF"
-      }
-    },
-    "web": {
-      "favicon": "./assets/favicon.png"
-    }
-  }
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { Appbar } from 'react-native-paper';
+
+import HomeScreen from './components/HomeScreen';
+import DetailsScreen from './components/DetailsScreen';
+
+
+const Stack = createNativeStackNavigator();
+
+export default function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName = "HomeScreen">
+      <Stack.Screen name="HomeScreen" component={HomeScreen} options={{title: "News Application"}} />
+      <Stack.Screen name="DetailsScreen" component = {DetailsScreen} options = {{title: "Article"}} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  )
 }
